@@ -1,0 +1,97 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    background-image: url('Imagenes/fondo.jpg'); /* Reemplaza con la URL de tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1em;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 2em;
+    text-align: center;
+}
+
+section {
+    margin-bottom: 2em;
+}
+
+#catalogo, #carrito {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+}
+
+.articulo {
+    background-color: white;
+    padding: 1em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+}
+
+.articulo img {
+    max-width: 100%;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+}
+
+.articulo h3 {
+    margin: 0.5em 0;
+}
+
+/* Estilos para botones */
+button, .alquilar-btn, .pagar-btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 0.5em;
+}
+
+button:hover, .alquilar-btn:hover, .pagar-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+

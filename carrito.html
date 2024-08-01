@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago seguro</title>
+    <!-- Enlaza tus estilos CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Enlaza los estilos de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Carrito</h1>
+        <div id="product-list">
+            <!-- Aquí se mostrarían los productos -->
+        </div>
+        <form id="payment-form">
+            <div id="card-element"></div>
+            <button onclick="pagar()">Pagar</button>
+            <div id="payment-result"></div>
+        </form>
+    </div>
+    
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Función para mostrar los productos del carrito en la página Carrito.html
+        function mostrarProductosDelCarrito() {
+            // Obtener los productos del carrito del localStorage
+            const carrito = JSON.parse(localStorage.getItem('carrito'));
+            
+            // Verificar si hay productos en el carrito
+            if (carrito && carrito.length > 0) {
+                // Obtener el contenedor donde se mostrarán los productos del carrito
+                const contenedorCarrito = document.getElementById('product-list');
+                
+                // Limpiar el contenido previo del contenedor
+                contenedorCarrito.innerHTML = '';
+                
+                // Iterar sobre los productos del carrito y agregarlos al contenedor
+                carrito.forEach((producto, index) => {
+                    const nuevoProducto = document.createElement('div');
+                    nuevoProducto.classList.add('producto-carrito');
+                    nuevoProducto.draggable = true;  // Hacer el producto arrastrable
+                    nuevoProducto.dataset.index = index; // Añadir el índice como un atributo de datos
+                    nuevoProducto.innerHTML = `<p>${producto.nombre} - $${producto.precio.toFixed(2)}</p>`;
+                    
+                    // Agregar el botón de eliminar
+                    const botonEliminar = document.createElement('button');
+                    botonEliminar.textContent = 'Eliminar';
+                    botonEliminar.addEventListener('click', function() {
+                        eliminarProductoDelCarrito(index);
+                    });
+                    nuevoProducto.appendChild(botonEliminar);
+                    
+                    // Añadir eventos de arrastrar y soltar
+                    nuevoProducto.addEventListener('dragstart', function(e) {
+                        e.dataTransfer.setData('text/plain', index);
+                    });
+                    
+                    contenedorCarrito.appendChild(nuevoProducto);
+                });
+            } else {
+                // Mostrar un mensaje si el carrito está vacío
+                const contenedorCarrito = document.getElementById('product-list');
+                contenedorCarrito.innerHTML = '<p>El carrito está vacío</p>';
+            }
+        }
+
+        // Función para eliminar un producto del carrito
+        function eliminarProductoDelCarrito(index) {
+            // Obtener los productos del carrito del localStorage
+            let carrito = JSON.parse(localStorage.getItem('carrito'));
+            
+            // Verificar si el índice es válido
+            if (index >= 0 && index < carrito.length) {
+                // Eliminar el producto del carrito
+                carrito.splice(index, 1);
+                
+                // Guardar los cambios en el localStorage
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+                
+                // Volver a mostrar los productos del carrito
+                mostrarProductosDelCarrito();
+            }
+        }
+
+        // Función para pagar
+        function pagar() {
+            // Aquí puedes agregar la lógica para procesar el pago
+            alert('¡Su pago se ha realizado con éxito! Gracias');
+            // Por ejemplo, puedes redirigir a una página de pago o mostrar un mensaje de confirmación.
+        }
+
+        // Llamar a la función para mostrar los productos del carrito cuando la página esté cargada
+        document.addEventListener('DOMContentLoaded', function() {
+            mostrarProductosDelCarrito();
+            
+            // Añadir un contenedor para la zona de eliminación de productos
+            const eliminarZona = document.createElement('div');
+            eliminarZona.id = 'eliminar-zona';
+            eliminarZona.textContent = 'Arrastra aquí para eliminar';
+            eliminarZona.style.border = '2px dashed red';
+            eliminarZona.style.padding = '20px';
+            eliminarZona.style.marginTop = '20px';
+            eliminarZona.style.textAlign = 'center';
+            eliminarZona.addEventListener('dragover', function(e) {
+                e.preventDefault();
+            });
+            eliminarZona.addEventListener('drop', function(e) {
+                e.preventDefault();
+                const index = e.dataTransfer.getData('text/plain');
+                eliminarProductoDelCarrito(index);
+            });
+            document.body.appendChild(eliminarZona);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogo Articulos</title>
+    <!-- Enlaza tus estilos CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <header>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div id="carrito">
+        <h2>Carrito </h2>
+        <ul id="lista-carrito">
+        </ul>
+        <p>Total: <span id="total-carrito">$0.00</span></p>
+        
+        <button onclick="procesarPago()">Procesar Pago</button>
+    </div>
+    <div class="contenido">
+        <h1>CATALOGO</h1>
+        <section id="catalogo">
+            <h2>Nuestros Equipos</h2>
+            <div class="articulo">
+                <img src="Imagenes/laptop.jpg" alt="Laptop">
+                <h3>Laptop</h3>
+                <p>Precio: $20 por día</p>
+                <button class="alquilar-btn" onclick="agregarAlCarrito('Laptop', 20)">Alquilar</button>
+            </div>
+            <div class="articulo">
+                <img src="Imagenes/camara.jpg" alt="Cámara">
+                <h3>Cámara</h3>
+                <p>Precio: $15 por día</p>
+                <button class="alquilar-btn" onclick="agregarAlCarrito('Cámara', 15)">Alquilar</button>
+            </div>
+            <div class="articulo">
+                <img src="Imagenes/proyector.jpg" alt="Proyector">
+                <h3>Proyector</h3>
+                <p>Precio: $30 por día</p>
+                <button class="alquilar-btn" onclick="agregarAlCarrito('Proyector', 30)">Alquilar</button>
+            </div>
+            <div class="articulo">
+                <img src="Imagenes/tablet.jpg" alt="Tablet">
+                <h3>Tablet</h3>
+                <p>Precio: $10 por día</p>
+                <button class="alquilar-btn" onclick="agregarAlCarrito('Tablet', 10)">Alquilar</button>
+            </div>
+            <div class="articulo">
+                <img src="Imagenes/smartphone.jpg" alt="Smartphone">
+                <h3>Smartphone</h3>
+                <p>Precio: $12 por día</p>
+                <button class="alquilar-btn" onclick="agregarAlCarrito('Smartphone', 12)">agregarAlCarrito</button>
+            </div>
+            <div class="articulo">
+                <img src="Imagenes/tv.jpg" alt="Televisión">
+                <h3>Televisión</h3>
+                <p>Precio: $25 por día</p>
+                <button class="alquilar-btn" onclick="agregarAlCarrito('Televisión', 25)">Alquilar</button>
+            </div>
+            <div class="articulo">
+                <img src="Imagenes/consola.jpg" alt="Consola de Videojuegos">
+                <h3>Consola de Videojuegos</h3>
+                <p>Precio: $18 por día</p>
+                <button class="alquilar-btn" onclick="agregarAlCarrito('Consola de Videojuegos', 18)">Alquilar</button>
+            </div>
+            <div class="articulo">
+                <img src="Imagenes/impresora.jpg" alt="Impresora">
+                <h3>Impresora</h3>
+                <p>Precio: $8 por día</p>
+                <button class="alquilar-btn" onclick="agregarAlCarrito('Impresora', 8)">Alquilar</button>
+            </div>
+            <div class="articulo">
+                <img src="Imagenes/monitor.jpg" alt="Monitor">
+                <h3>Monitor</h3>
+                <p>Precio: $10 por día</p>
+                <button class="alquilar-btn" onclick="agregarAlCarrito('Monitor', 10)">Alquilar</button>
+            </div>
+            <div class="articulo">
+                <img src="Imagenes/altavoces.jpg" alt="Altavoces">
+                <h3>Altavoces</h3>
+                <p>Precio: $7 por día</p>
+                <button class="alquilar-btn" onclick="agregarAlCarrito('Altavoces', 7)">Alquilar</button>
+            </div>
+            <div class="articulo">
+                <img src="Imagenes/microfono.jpg" alt="Micrófono">
+                <h3>Micrófono</h3>
+                <p>Precio: $5 por día</p>
+                <button class="alquilar-btn" onclick="agregarAlCarrito('Micrófono', 5)">Alquilar</button>
+            </div>
+            <div class="articulo">
+                <img src="Imagenes/proyector_portatil.jpg" alt="Proyector Portátil">
+                <h3>Proyector Portátil</h3>
+                <p>Precio: $20 por día</p>
+                <button class="alquilar-btn" onclick="agregarAlCarrito('Proyector Portátil', 20)">Alquilar</button>
+            </div>
+            <div class="articulo">
+                <img src="Imagenes/drone.jpg" alt="Drone">
+                <h3>Drone</h3>
+                <p>Precio: $25 por día</p>
+                <button class="alquilar-btn" onclick="agregarAlCarrito('Drone', 25)">Alquilar</button>
+            </div>
+            <div class="articulo">
+                <img src="Imagenes/gopro.jpg" alt="GoPro">
+                <h3>GoPro</h3>
+                <p>Precio: $15 por día</p>
+                <button class="alquilar-btn" onclick="agregarAlCarrito('GoPro', 15)">Alquilar</button>
+            </div>
+            <div class="articulo">
+                <img src="Imagenes/auriculares.jpg" alt="Auriculares">
+                <h3>Auriculares</h3>
+                <p>Precio: $5 por día</p>
+                <button class="alquilar-btn" onclick="agregarAlCarrito('Auriculares', 5)">Alquilar</button>
+            </div>
+            <div class="articulo">
+                <img src="Imagenes/smartwatch.jpg" alt="Smartwatch">
+                <h3>Smartwatch</h3>
+                <p>Precio: $8 por día</p>
+                <button class="alquilar-btn" onclick="agregarAlCarrito('Smartwatch', 8)">Alquilar</button>
+            </div>
+            <div class="articulo">
+                <img src="Imagenes/ebook.jpg" alt="E-Book Reader">
+                <h3>E-Book Reader</h3>
+                <p>Precio: $7 por día</p>
+                <button class="alquilar-btn" onclick="agregarAlCarrito('E-Book Reader', 7)">Alquilar</button>
+            </div>
+            <div class="articulo">
+                <img src="Imagenes/estabilizador.jpg" alt="Estabilizador">
+                <h3>Estabilizador</h3>
+                <p>Precio: $12 por día</p>
+                <button class="alquilar-btn" onclick="agregarAlCarrito('Estabilizador', 12)">Alquilar</button>
+            </div>
+            <div class="articulo">
+                <img src="Imagenes/cargador_portatil.jpg" alt="Cargador Portátil">
+                <h3>Cargador Portátil</h3>
+                <p>Precio: $5 por día</p>
+                <button class="alquilar-btn" onclick="agregarAlCarrito('Cargador Portátil', 5)">Alquilar</button>
+            </div>
+        </section>
+    </div>
+    <script>
+       let carrito = [];
+let totalCarrito = 0;
+
+function agregarAlCarrito(nombre, precio) {
+    // Agregar el producto al carrito
+    carrito.push({ nombre: nombre, precio: precio });
+    totalCarrito += precio;
+     
+    // Guardar los productos del carrito en el localStorage
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+
+    // Actualizar la interfaz de usuario
+    mostrarCarrito();
+}
+
+function mostrarCarrito() {
+    const listaCarrito = document.getElementById('lista-carrito');
+    const totalCarritoElemento = document.getElementById('total-carrito');
+
+    // Limpiar el contenido previo del carrito
+    listaCarrito.innerHTML = '';
+
+    // Recorrer el carrito y agregar cada producto a la lista
+    carrito.forEach((producto, index) => {
+        const elementoCarrito = document.createElement('li');
+        elementoCarrito.textContent = `${producto.nombre} - $${producto.precio.toFixed(2)}`;
+        
+        // Añadir un botón para eliminar el producto
+        const botonEliminar = document.createElement('button');
+        botonEliminar.textContent = 'Eliminar';
+        botonEliminar.onclick = function() {
+            eliminarDelCarrito(index);
+        };
+        elementoCarrito.appendChild(botonEliminar);
+
+        listaCarrito.appendChild(elementoCarrito);
+    });
+
+    // Mostrar el total del carrito
+    totalCarritoElemento.textContent = `$${totalCarrito.toFixed(2)}`;
+}
+
+// Función para eliminar un producto del carrito
+function eliminarDelCarrito(index) {
+    totalCarrito -= carrito[index].precio;
+    carrito.splice(index, 1);
+
+    // Actualizar el localStorage y la interfaz de usuario
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    mostrarCarrito();
+}
+
+// Función para mostrar los productos del carrito en la página Carrito.html
+function mostrarProductosDelCarrito() {
+    // Obtener los productos del carrito del localStorage
+    const carritoGuardado = JSON.parse(localStorage.getItem('carrito'));
+    
+    // Verificar si hay productos en el carrito
+    if (carritoGuardado && carritoGuardado.length > 0) {
+        // Copiar los productos del localStorage al carrito actual
+        carrito = carritoGuardado;
+    }
+
+    // Mostrar el carrito actualizado
+    mostrarCarrito();
+}
+
+// Llamar a la función para mostrar los productos del carrito cuando la página esté cargada
+document.addEventListener('DOMContentLoaded', function() {
+    mostrarProductosDelCarrito();
+});
+
+// Event listener para el botón de "Agregar al Carrito"
+const botonesAgregar = document.querySelectorAll('.agregar-carrito');
+botonesAgregar.forEach(boton => {
+    boton.addEventListener('click', function() {
+        const nombre = this.dataset.nombre;
+        const precio = parseFloat(this.dataset.precio);
+        agregarAlCarrito(nombre, precio);
+    });
+});
+
+        function eliminarDelCarrito(index) {
+            totalCarrito -= carrito[index].precio;
+            carrito.splice(index, 1);
+            mostrarCarrito();
+        }
+    
+        function eliminarSeleccionados() {
+            const checkboxes = document.querySelectorAll('#lista-carrito input[type="checkbox"]');
+            checkboxes.forEach((checkbox, index) => {
+                if (checkbox.checked) {
+                    totalCarrito -= carrito[index].precio;
+                    carrito.splice(index, 1);
+                }
+            });
+            mostrarCarrito();
+        }
+    
+        function procesarPago() {
+            // Aquí puedes agregar la lógica para procesar el pago
+            alert('Procesando pago...');
+            // Por ejemplo, puedes redirigir a una página de pago o mostrar un mensaje de confirmación.
+            window.location.href = "carrito.html";
+        }
+    </script>
+
+    
+    
+</body>
+
+</html>
